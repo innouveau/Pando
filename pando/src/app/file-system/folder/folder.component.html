@@ -1,0 +1,9 @@
+<div
+    *ngIf="folder"
+    class="folder"
+    (click)="onSelect(folder)">
+    <img src="assets/images/icons/folder.png">
+    <div class="folder-title">
+        {{folder.title}}
+    </div>
+</div>
