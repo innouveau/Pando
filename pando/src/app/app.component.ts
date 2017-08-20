@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.fileSystemService.bootstrap()
-            .then(bootstrap => this.root = bootstrap[0] );
+            .then(bootstrap => this.root = new Folder(bootstrap[0]) );
     }
 
 }

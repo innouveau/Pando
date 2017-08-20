@@ -1,6 +1,7 @@
 // modules
 import { Component, Input } from '@angular/core';
 
+import { File } from './file/file';
 import { Folder } from './folder/folder';
 
 @Component({
@@ -20,9 +21,24 @@ export class FileSystemComponent {
     // initial passing of root sets root as first currentFolder
     @Input() set root(root: Folder) {
         if (root) {
-            console.log(root);
             this.selectFolder(root);
         }
+    }
+
+    addFile() {
+        let data = {id: 0, title: 'Untitled document'},
+            file = new File(data);
+        this.currentFolder.addChild(file);
+    }
+
+    addFolder() {
+        let data = {id: 0, title: 'Untitled document'},
+            folder = new Folder(data);
+        this.currentFolder.addChild(folder);
+    }
+
+    selectFile(file) {
+        console.log('selected ' + file.title);
     }
 
     selectFolder(folder) {

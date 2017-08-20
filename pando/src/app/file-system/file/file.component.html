@@ -1,0 +1,9 @@
+<div
+    *ngIf="file"
+    class="file"
+    (click)="onSelect(file)">
+    <img src="assets/images/icons/file.png">
+    <div class="file-title">
+        {{file.title}}
+    </div>
+</div>

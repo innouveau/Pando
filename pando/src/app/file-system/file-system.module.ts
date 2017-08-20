@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 // components to declare
 import { FileSystemComponent } from './file-system.component';
 import { FolderComponent } from './folder/folder.component';
+import { FileComponent } from './file/file.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { FolderComponent } from './folder/folder.component';
     ],
     declarations: [
         FileSystemComponent,
-        FolderComponent
+        FolderComponent,
+        FileComponent
     ],
     providers: [],
     exports: [FileSystemComponent]

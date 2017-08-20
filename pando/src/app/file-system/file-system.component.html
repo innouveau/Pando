@@ -1,4 +1,7 @@
 <div class="file-system-header">
+    <button (click)="addFolder()">Add Folder</button>
+    <button (click)="addFile()">Add File</button>
+    •
     <button [ngClass]="{'disabled': currentFrame === 0}" (click)="back()">
         <
     </button>
@@ -6,14 +9,21 @@
         >
     </button>
     <div *ngIf="currentFolder" class="current-folder-title">
-        {{currentFolder.title}}
+        Current folder: {{currentFolder.title}}
     </div>
 </div>
 
 <div *ngIf="currentFolder">
-    <folder
-        *ngFor="let child of currentFolder.children"
-        [folder]="child"
-        (selectFolder)="selectFolder($event)">
-    </folder>
+    <a *ngFor="let child of currentFolder.children">
+        <file
+            *ngIf="child.type === 'file'"
+            [file]="child"
+            (selectFile)="selectFile($event)">
+        </file>
+        <folder
+            *ngIf="child.type === 'folder'"
+            [folder]="child"
+            (selectFolder)="selectFolder($event)">
+        </folder>
+    </a>
 </div>

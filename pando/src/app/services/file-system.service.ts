@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { File } from './../file-system/file/file';
 import { Folder } from './../file-system/folder/folder';
 
 @Injectable()

@@ -12,7 +12,7 @@ export class FolderComponent {
 
     @Input() folder: Folder;
 
-    @Output() selectFolder: EventEmitter<number> = new EventEmitter<number>();
+    @Output() selectFolder: EventEmitter<Folder> = new EventEmitter<Folder>();
 
     onSelect(folder) {
         this.selectFolder.emit(folder);

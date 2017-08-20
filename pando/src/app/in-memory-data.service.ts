@@ -35,15 +35,25 @@ export class InMemoryDataService implements InMemoryDbService {
                             }, {
                                 id: 5,
                                 type: 'folder',
-                                title: 'Sub Project Y'
+                                title: 'Sub Project Y',
+                                children: [
+                                    {
+                                        id: 7,
+                                        type: 'file',
+                                        title: 'Photos 2017'
+                                    }, {
+                                        id: 8,
+                                        type: 'file',
+                                        title: 'Photos 2018'
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
                         id: 6,
-                        type: 'folder',
-                        title: 'My project 03',
-                        children: []
+                        type: 'file',
+                        title: 'Untitled document'
                     }
                 ]
             }

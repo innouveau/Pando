@@ -3,8 +3,13 @@
     padding: 10px;
     background: #eee;
 
-    .disabled {
-        opacity: 0.3;
+    button {
+        cursor: pointer;
+
+        &.disabled {
+            cursor: default;
+            opacity: 0.3;
+        }
     }
 
     .current-folder-title {
