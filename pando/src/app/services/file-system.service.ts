@@ -3,13 +3,13 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Folder } from './../folder/folder';
+import { Folder } from './../file-system/folder/folder';
 
 @Injectable()
 
 export class FileSystemService {
 
-    private apiUrl = 'api/';  // URL to web api
+    private apiUrl = 'api/';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }

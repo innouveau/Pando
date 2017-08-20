@@ -1,26 +1,27 @@
 // modules
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import { HttpModule }       from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService } from './in-memory-data.service';
+import { FileSystemModule } from './file-system/file-system.module';
 
-// components
+// components to declare
 import { AppComponent } from './app.component';
-import { FolderComponent } from './file-system/folder/folder.component';
 
 // services
-import { FileSystemService } from './file-system/services/file-system.service';
+import { FileSystemService } from './services/file-system.service';
+
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
+        FileSystemModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
     ],
     declarations: [
-        AppComponent,
-        FolderComponent
+        AppComponent
     ],
     providers: [FileSystemService],
     bootstrap: [AppComponent]
