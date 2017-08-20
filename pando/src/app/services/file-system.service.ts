@@ -22,6 +22,20 @@ export class FileSystemService {
             .catch(this.handleError);
     }
 
+    addFile(file): Promise<number> {
+        return this.http.get(this.apiUrl + 'addFile')
+            .toPromise()
+            .then(response => response.json().data as number)
+            .catch(this.handleError);
+    }
+
+    addFolder(folder): Promise<number> {
+        return this.http.get(this.apiUrl + 'addFolder')
+            .toPromise()
+            .then(response => response.json().data as number)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

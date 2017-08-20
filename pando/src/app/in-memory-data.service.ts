@@ -1,6 +1,10 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
     createDb() {
+        const addFile = Math.round(Math.random() * 1000);
+
+        const addFolder = Math.round(Math.random() * 1000);
+
         const bootstrap = [
             {
                 id: 0,
@@ -58,6 +62,6 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
             }
         ];
-        return {bootstrap};
+        return {addFile, addFolder, bootstrap};
     }
 }

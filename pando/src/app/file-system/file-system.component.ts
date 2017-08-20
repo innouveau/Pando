@@ -4,6 +4,9 @@ import { Component, Input } from '@angular/core';
 import { File } from './file/file';
 import { Folder } from './folder/folder';
 
+// services
+import { FileSystemService } from './../services/file-system.service';
+
 @Component({
     selector: 'file-system',
     templateUrl: './file-system.component.html',
@@ -13,6 +16,8 @@ import { Folder } from './folder/folder';
 
 
 export class FileSystemComponent {
+
+    constructor(private fileSystemService: FileSystemService) { }
 
     currentFolder: Folder;
     history: Folder[] = [];
@@ -27,14 +32,26 @@ export class FileSystemComponent {
 
     addFile() {
         let data = {id: 0, title: 'Untitled document'},
-            file = new File(data);
-        this.currentFolder.addChild(file);
+            file;
+        this.fileSystemService.addFile(data)
+            .then(
+            (id) => {
+                data.id = id;
+                file = new File(data);
+                this.currentFolder.addChild(file);
+            })
     }
 
     addFolder() {
-        let data = {id: 0, title: 'Untitled document'},
-            folder = new Folder(data);
-        this.currentFolder.addChild(folder);
+        let data = {id: null, title: 'Untitled document'},
+            folder;
+        this.fileSystemService.addFolder(data)
+            .then(
+            (id) => {
+                data.id = id;
+                folder = new Folder(data);
+                this.currentFolder.addChild(folder);
+            })
     }
 
     selectFile(file) {
